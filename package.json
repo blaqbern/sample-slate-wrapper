@@ -14,6 +14,8 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
-    "@storybook/react": "^3.2.4"
+    "@storybook/react": "^3.2.4",
+    "keycode": "^2.1.9",
+    "slate": "^0.21.2"
   }
 }
