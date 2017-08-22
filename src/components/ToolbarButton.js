@@ -9,7 +9,6 @@ export default function ToolbarButton({
   type,
 }) {
   const handleButtonClick = e => handleClick(e, type)
-  console.log('isActive = ', isActive)
 
   return (
     <span

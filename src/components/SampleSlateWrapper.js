@@ -1,73 +1,37 @@
 import React, { Component } from 'react'
-import { Editor, Raw } from 'slate'
+import { Editor } from 'slate'
 import Toolbar from './Toolbar'
-import MarkHotkey from '../slate/plugins/MarkHotkey'
+
+import { initializeSlate } from '../slate/initialize'
+import { schema } from '../slate/schema'
+import { plugins } from '../slate/plugins'
+import { markActions } from '../slate/toolbar/actions'
 
 import '../styles/SampleSlateWrapper.css'
 
-const initialState = Raw.deserialize({
-  nodes: [
-    {
-      kind: 'block',
-      type: 'paragraph',
-      nodes: [
-        {
-          kind: 'text',
-          text: 'A single line of text',
-        }
-      ],
-    },
-  ],
-}, { terse: true })
-
 export default class SampleSlateWrapper extends Component {
-  state = {
-    state: initialState,
-    schema: {
-      marks: {
-        bold: props => <strong>{props.children}</strong>,
-        italic: props => <em>{props.children}</em>,
-        strikethrough: props => <del>{props.children}</del>,
-        underline: props => <u>{props.children}</u>,
-        code: props => <code>{props.children}</code>,
-      },
-    },
-  }
+  state = { state: initializeSlate('A single line of text'), schema }
   onChange = state => this.setState({ state })
   setMark = (event, type) => {
     event.preventDefault()
-
-    const { state } = this.state
-    const nextState = state.transform().toggleMark(type).apply()
-    this.setState({ state: nextState })
+    this.setState({
+      state: this.state.state.transform().toggleMark(type).apply()
+    })
   }
   hasMark = type => this.state.state.marks.some(mark => mark.type === type)
 
   render() {
-    const { state, schema } = this.state
     return (
       <div>
         <Toolbar
           setMark={this.setMark}
           hasMark={this.hasMark}
-          markActions={[
-            { icon: ' B ', type: 'bold' },
-            { icon: ' I ', type: 'italic' },
-            { icon: ' S ', type: 'strikethrough' },
-            { icon: ' U ', type: 'underline' },
-            { icon: ' </> ', type: 'code' },
-          ]}
+          markActions={markActions}
         />
         <Editor
-          plugins={[
-            MarkHotkey({ type: 'bold', key: 'b' }),
-            MarkHotkey({ type: 'italic', key: 'i' }),
-            MarkHotkey({ type: 'strikethrough', key: 's' }),
-            MarkHotkey({ type: 'underline', key: 'u' }),
-            MarkHotkey({ type: 'code', key: 'c', isAltKey: true }),
-          ]}
-          state={state}
-          schema={schema}
+          state={this.state.state}
+          schema={this.state.schema}
+          plugins={plugins}
           onChange={this.onChange}
           className="myEditor"
         />
