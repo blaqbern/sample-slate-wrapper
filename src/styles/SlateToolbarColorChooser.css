@@ -1,0 +1,13 @@
+.colorPicker {
+  width: 100px;
+  display: inline-flex;
+}
+
+input[type="color"] {
+  opacity: 0;
+}
+
+.colorPicker .colorSwatch {
+  width: 25px;
+  height: 25px;
+}

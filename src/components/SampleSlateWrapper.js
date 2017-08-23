@@ -18,15 +18,33 @@ export default class SampleSlateWrapper extends Component {
       state: this.state.state.transform().toggleMark(type).apply()
     })
   }
+  setMarkWithValue = (event, type, value) => {
+    event.preventDefault()
+    const { state } = this.state
+    const [current] = [...state.marks].filter(mark => mark.type === type)
+    const nextState = {
+      state: this.state.state
+        .transform()
+        .removeMark(current || type)
+        .addMark({ type, data: { dataValue: value } })
+        .apply(),
+    }
+    this.setState(nextState)
+  }
   hasMark = type => this.state.state.marks.some(mark => mark.type === type)
+  hasMarkWithValue = (type, dataValue) => this.state.state.marks.some(
+    mark => mark.type === type && mark.data.get('dataValue') === dataValue
+  )
 
   render() {
     return (
       <div className="slateWrapper">
         <Toolbar
+          markActions={markActions}
           setMark={this.setMark}
           hasMark={this.hasMark}
-          markActions={markActions}
+          setMarkWithValue={this.setMarkWithValue}
+          hasMarkWithValue={this.hasMarkWithValue}
         />
         <Editor
           state={this.state.state}

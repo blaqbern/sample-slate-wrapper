@@ -7,5 +7,9 @@ export const schema = {
     strikethrough: props => <del>{props.children}</del>,
     underline: props => <u>{props.children}</u>,
     code: props => <code>{props.children}</code>,
+    textColor: props =>
+      <span style={{ color: props.mark.data.get('dataValue') }}>
+        {props.children}
+      </span>,
   },
 }
