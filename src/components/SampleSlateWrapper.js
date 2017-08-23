@@ -22,7 +22,7 @@ export default class SampleSlateWrapper extends Component {
 
   render() {
     return (
-      <div>
+      <div className="slateWrapper">
         <Toolbar
           setMark={this.setMark}
           hasMark={this.hasMark}
@@ -33,7 +33,7 @@ export default class SampleSlateWrapper extends Component {
           schema={this.state.schema}
           plugins={plugins}
           onChange={this.onChange}
-          className="myEditor"
+          className="slateEditor"
         />
       </div>
     )

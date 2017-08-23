@@ -1,4 +1,20 @@
+.slateToolbarButton {
+  display: inline-block;
+  margin-right: 4px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  color: #ddd;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1;
+  padding: 7px 0;
+  cursor: pointer;
+}
+.slateToolbarButton:last-child { margin-right: 0; }
+
+.slateToolbarButton:hover,
 .slateToolbarButton.active {
-  background: seagreen;
-  color: seashell;
+  color: #444;
+  background: #ddd;
 }

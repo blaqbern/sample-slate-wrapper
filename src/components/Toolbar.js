@@ -8,15 +8,17 @@ export default function Toolbar({
 }) {
   return (
     <div className="slateToolbar">
-      {markActions.map((action, index) =>
-        <ToolbarButton
-          key={index}
-          icon={action.icon}
-          type={action.type}
-          handleClick={setMark}
-          isActive={hasMark(action.type)}
-        />
-      )}
+      <div className="buttonPanel">
+        {markActions.map((action, index) =>
+          <ToolbarButton
+            key={index}
+            icon={action.icon}
+            type={action.type}
+            handleClick={setMark}
+            isActive={hasMark(action.type)}
+          />
+        )}
+      </div>
     </div>
   )
 }

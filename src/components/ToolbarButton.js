@@ -11,12 +11,12 @@ export default function ToolbarButton({
   const handleButtonClick = e => handleClick(e, type)
 
   return (
-    <span
+    <div
       className={`slateToolbarButton ${isActive ? 'active' : ''}` }
       onClick={handleButtonClick}
     >
       {icon}
-    </span>
+    </div>
   )
 }
 const { string, func } = React.PropTypes
