@@ -10,7 +10,7 @@ import { markActions } from '../slate/toolbar/actions'
 import '../styles/SampleSlateWrapper.css'
 
 export default class SampleSlateWrapper extends Component {
-  state = { state: initializeSlate('A single line of text'), schema }
+  state = { state: initializeSlate(), schema }
   onChange = state => this.setState({ state })
   setMark = (event, type) => {
     event.preventDefault()
