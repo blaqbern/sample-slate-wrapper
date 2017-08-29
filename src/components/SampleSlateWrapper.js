@@ -28,15 +28,19 @@ export default class SampleSlateWrapper extends Component {
   setMarkWithValue = (event, type, value) => {
     event.preventDefault()
     const { state } = this.state
-    const [current] = [...state.marks].filter(mark => mark.type === type)
-    const nextState = {
-      state: this.state.state
+    const { document, selection } = state
+    const marksOfTypeCleared = document.getMarksAtRange(selection).reduce((reduction, mark) => {
+      if (mark.type === type) return reduction.transform().removeMark(mark).apply()
+      return reduction
+    }, state)
+
+    this.setState({
+      state: marksOfTypeCleared
         .transform()
-        .removeMark(current || type)
         .addMark({ type, data: { value } })
+        .focus()
         .apply(),
-    }
-    this.setState(nextState)
+    })
   }
 
   render() {
