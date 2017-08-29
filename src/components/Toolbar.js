@@ -1,4 +1,5 @@
 import React from 'react'
+import { object, func } from 'prop-types'
 import ToolbarButton from './ToolbarButton'
 import ToolbarColorChooser from './ToolbarColorChooser'
 
@@ -37,4 +38,11 @@ export default function Toolbar({
       </div>
     </div>
   )
+}
+Toolbar.propTypes = {
+  markActions: object,
+  setMark: func,
+  hasMark: func,
+  setMarkWithValue: func,
+  hasMarkWithValue: func,
 }

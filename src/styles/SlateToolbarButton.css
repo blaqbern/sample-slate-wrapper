@@ -4,17 +4,17 @@
   height: 30px;
   width: 30px;
   text-align: center;
-  color: #ccc;
+  color: #a4bcbc;
   border-radius: 3px;
   font-size: 16px;
   line-height: 1;
   padding: 7px 0;
   cursor: pointer;
 }
-.slateToolbarButton:last-child { margin-right: 0; }
+.slateToolbarButton:last-of-type { margin-right: 0; }
 
 .slateToolbarButton:hover,
 .slateToolbarButton.active {
-  color: #444;
-  background: #ddd;
+  background: #1b3d47;
+  opacity: .5;
 }

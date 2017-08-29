@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { string, func, bool } from 'prop-types'
 
 import '../styles/SlateToolbarButton.css'
 
@@ -19,5 +20,9 @@ export default function ToolbarButton({
     </div>
   )
 }
-const { string, func } = React.PropTypes
-ToolbarButton.propTypes = { icon: string, handleClick: func }
+ToolbarButton.propTypes = {
+  icon: string,
+  handleClick: func,
+  isActive: bool,
+  type: string,
+}

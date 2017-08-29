@@ -16,6 +16,7 @@
   "devDependencies": {
     "@storybook/react": "^3.2.4",
     "keycode": "^2.1.9",
+    "prop-types": "^15.5.10",
     "slate": "^0.21.2"
   }
 }

@@ -1,6 +1,6 @@
 import { Raw } from 'slate'
 
-function init(str) {
+function init(str = '') {
   return Raw.deserialize({
     nodes: [
       {

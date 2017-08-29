@@ -5,6 +5,9 @@
 
 input[type="color"] {
   opacity: 0;
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
 }
 
 .colorPicker .colorSwatch {

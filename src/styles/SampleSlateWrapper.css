@@ -2,7 +2,10 @@
 
 * { box-sizing: border-box; }
 
-body { font-family: 'Fira Sans'; }
+body {
+  font-family: 'Fira Sans';
+  background: #edf4f4;
+}
 code { font-family: 'Fira Mono'; }
 
 .slateWrapper { margin: 40px; }
@@ -11,8 +14,8 @@ code { font-family: 'Fira Mono'; }
 .slateEditor {
   padding: 15px;
   border-radius: 6px;
-  background: #f5f5f5;
-  color: #444;
+  background: #d7e4e5;
+  color: #1b3d47;
 }
 
 .slateToolbar:after {
@@ -30,4 +33,5 @@ code { font-family: 'Fira Mono'; }
 .slateEditor {
   margin-top: 4px;
   min-height: 60px;
+  max-width: 900px;
 }

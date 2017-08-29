@@ -8,7 +8,7 @@ export const schema = {
     underline: props => <u>{props.children}</u>,
     code: props => <code>{props.children}</code>,
     textColor: props =>
-      <span style={{ color: props.mark.data.get('dataValue') }}>
+      <span style={{ color: props.mark.data.get('value') }}>
         {props.children}
       </span>,
   },
