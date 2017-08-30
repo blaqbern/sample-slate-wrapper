@@ -14,12 +14,12 @@ export default class ToolbarColorChooser extends Component {
   }
 
   render() {
-    const { icon, values, hasMarkWithValue } = this.props
+    const { icon, values, hasMarkWithValue, type } = this.props
     const { collapsed } = this.state
     const [currentColor] = values.filter(v => hasMarkWithValue('textColor', v))
 
     return (
-      <div className="textColorChooser">
+      <span className={`${type}Chooser`}>
         <div
           style={{ color: currentColor }}
           className="slateToolbarButton"
@@ -42,7 +42,7 @@ export default class ToolbarColorChooser extends Component {
             )}
           </div>
         }
-      </div>
+      </span>
     )
   }
 }

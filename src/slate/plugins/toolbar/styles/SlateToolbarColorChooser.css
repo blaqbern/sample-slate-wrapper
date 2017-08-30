@@ -1,6 +1,6 @@
 .colorPicker {
-  width: 100px;
   display: inline-flex;
+  width: 100px;
 }
 
 input[type="color"] {
